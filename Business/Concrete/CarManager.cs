@@ -5,6 +5,7 @@ using System.Text;
 using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -31,7 +32,7 @@ namespace Business.Concrete
 
         public void Delete(Car car)
         {
-            throw new NotImplementedException();
+           _carDal.Delete(car);
         }
 
         public List<Car> GetAll()
@@ -39,24 +40,39 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
+        public List<CarDetailDto> GetCarDetailByBrandId(int id)
+        {
+            return _carDal.GetCarDetails(c => c.BrandId == id);
+        }
+
+        public List<CarDetailDto> GetCarDetailByColorId(int id)
+        {
+            return _carDal.GetCarDetails(c => c.ColorId == id);
+        }
+
+        public List<CarDetailDto> GetCarDetailDto()
+        {
+            return _carDal.GetCarDetails();
+        }
+
         public List<Car> GetCarsByBrandId(int id)
         {
-            return _carDal.GetAll(p => p.BrandId == id);
+            return _carDal.GetAll(c => c.BrandId == id);
         }
 
         public List<Car> GetCarsByColorId(int id)
         {
-            return _carDal.GetAll(p => p.ColorId == id);
+            return _carDal.GetAll(c => c.ColorId == id);
         }
 
         public List<Car> GetCarsByDailyPrice(decimal minPrice, decimal maxPrice)
         {
-            return _carDal.GetAll(p => p.DailyPrice <= maxPrice && p.DailyPrice >= minPrice);
+            return _carDal.GetAll(c => c.DailyPrice <= maxPrice && c.DailyPrice >= minPrice);
         }
 
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Update(car);
         }
     }
 }
