@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core.Entities
+namespace Business.CCS
 {
-    public interface IDto
+    public interface ILogger
     {
+        void Log();
     }
 }

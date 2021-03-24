@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,5 +18,14 @@ namespace Business.Constants
         public static string DeleteSuccess = "Silme işlemi başarılı";
         public static string ListSuccess = "Listeleme Başarılı";
         public static string DontAvailable = "Araç kiralanmak müsait değil.";
+        public static string UserNotFound = "Kullanıcı Bulunamdı.";
+        public static string PasswordError = "Parola Hatası";
+        public static string LoginSuccess = "Başarılı Giriş.";
+        public static string UserExists = "Kullanıcı Mevcut";
+        public static string AvailableUser = "Kullanıcı mevcut Değil";
+        public static string UserRegistered = "Kullanıcı Başarıyla Eklendi.";
+        public static string AccessTokenCreated = "Access Token Başarıyla Oluşturuldu";
+        public static string CarImageLimitExceded = "Daha fazla resim yükleyemezsiniz";
+        public static string NoCarImages = "Araç resmi yok ";
     }
 }

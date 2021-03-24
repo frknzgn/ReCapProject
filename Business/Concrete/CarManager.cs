@@ -22,8 +22,8 @@ namespace Business.Concrete
         ICarDal _carDal;
 
         public CarManager(ICarDal carDal)
-        { 
-            _carDal= carDal;
+        {
+            _carDal = carDal;
         }
 
         [ValidationAspect(typeof(CarValidator))]
@@ -31,8 +31,8 @@ namespace Business.Concrete
         {
 
             _carDal.Add(car);
-                return new SuccessResult(Messages.CarAdded);
-            
+            return new SuccessResult(Messages.CarAdded);
+
         }
 
         public IResult Delete(Car car)
@@ -43,12 +43,12 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour>=00 || DateTime.Now.Hour<=02)
-            {
-                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
-            }
+            //if (DateTime.Now.Hour >= 00 || DateTime.Now.Hour <= 02)
+            //{
+            //    return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+            //}
 
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarListed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetailByBrandId(int id)
@@ -85,7 +85,8 @@ namespace Business.Concrete
         public IResult Update(Car car)
         {
             _carDal.Update(car);
-           return new SuccessResult(Messages.CarUpdated);
+            return new SuccessResult(Messages.CarUpdated);
         }
+
     }
 }
