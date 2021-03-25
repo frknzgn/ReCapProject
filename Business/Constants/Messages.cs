@@ -27,5 +27,6 @@ namespace Business.Constants
         public static string AccessTokenCreated = "Access Token Başarıyla Oluşturuldu";
         public static string CarImageLimitExceded = "Daha fazla resim yükleyemezsiniz";
         public static string NoCarImages = "Araç resmi yok ";
+        public static string AuthorizationDenied = "Yetkiniz yok ";
     }
 }
