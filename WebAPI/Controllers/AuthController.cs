@@ -37,7 +37,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
         
-        [HttpPostAttribute("register")]
+        [HttpPost("register")]
         public ActionResult Register(UserForRegisterDto userForRegisterDto)
         {
             var userExist = _authService.UserExists(userForRegisterDto.Email);

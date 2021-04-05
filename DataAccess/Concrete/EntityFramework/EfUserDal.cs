@@ -1,17 +1,18 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Net.Http.Headers;
 using System.Text;
 using Core.DataAccess.EntityFramework;
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Remotion.Linq.Parsing.Structure.IntermediateModel;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserDal : EfEntityRepositoryBase<User,ReCapProjectDbContext>,IUserDal
+    public class EfUserDal : EfEntityRepositoryBase<User, ReCapProjectDbContext>, IUserDal
     {
         public List<OperationClaim> GetClaims(User user)
         {
@@ -21,9 +22,11 @@ namespace DataAccess.Concrete.EntityFramework
                     join userOperationClaim in context.UserOperationClaims
                         on operationClaim.Id equals userOperationClaim.OperationClaimId
                     where userOperationClaim.UserId == user.Id
-                    select new OperationClaim{Id = operationClaim.Id, Name = operationClaim.Name};
+                    select new OperationClaim { Id = operationClaim.Id, Name = operationClaim.Name };
                 return result.ToList();
+
             }
         }
     }
+
 }
